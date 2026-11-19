@@ -8,7 +8,7 @@ This project showcases several agent architectures—from foundational conversat
 
 ## 🚀 Agents Overview
 
-This repository includes four specialized agents:
+This repository includes five specialized agents:
 
 ### 1. `campusx_bot`
 * **Type:** Conversational LLM Agent
@@ -35,6 +35,16 @@ This repository includes four specialized agents:
   * **Google Search (`google_search`):** Grounding tool to look up unknown cities, regions, and timezone offsets.
   * **Built-in Code Interpreter (`BuiltInCodeExecutor`):** Allows the model to write and execute Python code in Gemini's sandbox environment.
   * **Server-Side Tool Invocations (`include_server_side_tool_invocations=True`):** Configures `types.ToolConfig` to expose server-side tool interactions (such as search queries and code execution outputs) directly within response events.
+
+### 5. `campusx_student_management`
+* **Type:** Database-Backed Workflow & Policy Agent
+* **Model:** `gemini-3.8-flash`
+* **Tools & Capabilities:**
+  * **Student Lookup (`get_student_by_email`):** Query student records uniquely via email.
+  * **Enrollment Tracking (`get_student_enrollments`):** Retrieve enrolled courses, progress, payment date, and refund status.
+  * **Refund Policy Evaluation (`check_refund_eligibility`):** Automated business rule checking (eligible only if paid, within 7 days of payment, and <= 20% course completed).
+  * **Refund Processing (`process_refund`):** Updates database records upon approved refund requests.
+  * **Course Catalog (`list_courses`):** Lists all active courses.
 
 ---
 
